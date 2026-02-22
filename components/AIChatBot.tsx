@@ -254,7 +254,7 @@ const AIChatBot = () => {
                 <div className="welcome-message">
                   <div className="bot-message">
                     <span className="message-text">
-                      👋 Hey there! I'm MaxBot, Maaz's friendly AI assistant! I'm so excited to help you explore his amazing portfolio. Feel free to ask me anything about his skills, projects, experience, or just chat about tech! What would you like to discover today? 😊
+                      👋 Hey there! I&apos;m MaxBot, Maaz&apos;s friendly AI assistant! I&apos;m so excited to help you explore his amazing portfolio. Feel free to ask me anything about his skills, projects, experience, or just chat about tech! What would you like to discover today? 😊
                     </span>
                     <small className="message-time">Just now</small>
                   </div>
