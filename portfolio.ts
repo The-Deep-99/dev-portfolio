@@ -15,7 +15,7 @@ export const greetings: GreetingsType = {
   name: "Maaz Mukadam",
   title: "Hi all, I'm Maaz",
   description:
-    "I'm a passionate Full Stack web developer with experience developing Full Stack web applications with Python, Django, React.js, and Cloud Technologies. I am strongly interested in learning new technologies and implementing them in my projects. I'm a self-motivated and hardworking individual who is always ready to learn new things and work in a team.",
+    "I'm a passionate Full Stack web developer with experience developing Full Stack web applications with java, javascript, React.js, and Cloud Technologies. I am strongly interested in learning new technologies and implementing them in my projects. I'm a self-motivated and hardworking individual who is always ready to learn new things and work in a team.",
   resumeLink: "#",
 };
 
@@ -176,14 +176,15 @@ export const projects: ProjectType[] = [
     name: "developer-portfolio",
     desc: "Software Developer Portfolio Template built with react.js and next.js bootstrap that helps you showcase your work and skills as a software developer.",
     github: "https://github.com/the-deep-99/developer-portfolio",
-    link: "https://developer-portfolio-maaz.vercel.app/",
+    link: "https://dev-portfolio-maaz.vercel.app/",
+    tags: ["React.js", "Next.js", "TypeScript", "Portfolio"],
   },
   {
     name: "AdQuench",
     desc: "A Free water platform where revenue is generated through targeted advertisements.",
-        github: "https://github.com/the-deep-99/AdQuench",
+    github: "https://github.com/the-deep-99/AdQuench",
     link: "https://AdQuench.vercel.app/",
-
+    tags: ["Web Development", "React.js", "Business"],
   },
  
 ];
@@ -209,7 +210,7 @@ export const seoData: SEODataType = {
   description: greetings.description,
   author: "Maaz Mukadam",
   image: "https://avatars.githubusercontent.com/u/59178380?v=4",
-  url: "https://developer-portfolio-maaz.vercel.app",
+  url: "https://dev-portfolio-maaz.vercel.app",
   keywords: [
     "Maaz",
     "Maaz Mukadam",

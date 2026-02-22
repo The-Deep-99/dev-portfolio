@@ -6,12 +6,26 @@ import DisplayLottie from "../components/DisplayLottie";
 import { skillsSection } from "../portfolio";
 
 const Skills = () => {
+  const cloudSkillSection = {
+    title: "Cloud & DevOps",
+    lottieAnimationFile: "/lottie/skills/cloudinfra.json",
+    skills: [
+      "⚡ Deploying scalable applications on cloud platforms",
+      "⚡ Implementing CI/CD pipelines and automation",
+      "⚡ Managing containerized applications with Docker",
+      "⚡ Optimizing cloud infrastructure and performance"
+    ],
+    softwareSkills: []
+  };
+
   return (
     skillsSection && (
       <Fade bottom duration={2000}>
-        <Container className="text-center my-5 section section-lg">
+        <Container id="skills" className="text-center my-5 section section-lg">
           <h1 className="h1">{skillsSection.title}</h1>
           <p className="lead">{skillsSection.subTitle}</p>
+          
+          {/* Existing Skills Sections */}
           {skillsSection.data.map((section, index) => {
             return (
               <Row className="my-5" key={index}>
@@ -46,6 +60,24 @@ const Skills = () => {
               </Row>
             );
           })}
+          
+          {/* New Cloud Infrastructure Animation Section */}
+          <Row className="my-5">
+            <Col lg="6" className="order-2 order-lg-1">
+              <DisplayLottie animationPath={cloudSkillSection.lottieAnimationFile} />
+            </Col>
+            <Col lg="6" className="order-1 order-lg-2">
+              <h3 className="h3 mb-2">{cloudSkillSection.title}</h3>
+              <div className="d-flex justify-content-center flex-wrap mb-2">
+                {/* Add some cloud/DevOps related icons if you want */}
+              </div>
+              <div>
+                {cloudSkillSection.skills.map((skill: string, i: number) => {
+                  return <p key={i}>{skill}</p>;
+                })}
+              </div>
+            </Col>
+          </Row>
         </Container>
       </Fade>
     )

@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { projects } from "../portfolio";
 import { Container, Row } from "reactstrap";
 import ProjectsCard from "../components/ProjectsCard";
+import ProjectFilter from "../components/ProjectFilter";
 import Fade from "react-reveal/Fade";
 
 const Projects = () => {
+  const [filteredProjects, setFilteredProjects] = useState(projects);
+
   return (
     projects && (
       <Fade bottom duration={2000}>
-        <section className="section section-lg">
+        <section id="projects" className="section section-lg">
           <Container>
             <div className="d-flex p-4">
               <div>
@@ -20,8 +23,14 @@ const Projects = () => {
                 <h4 className="display-3 text-info">Projects</h4>
               </div>
             </div>
+            
+            <ProjectFilter 
+              projects={projects} 
+              onFilteredProjects={setFilteredProjects} 
+            />
+            
             <Row className="row-grid align-items-center">
-              {projects.map((data, i) => {
+              {filteredProjects.map((data, i) => {
                 return <ProjectsCard key={i} {...data} />;
               })}
             </Row>

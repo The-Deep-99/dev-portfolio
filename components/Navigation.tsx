@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { greetings, socialLinks } from "../portfolio";
 import Headroom from "headroom.js";
-import { UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
+import { UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container, Row, Col, Button } from "reactstrap";
 
 const Navigation = () => {
   const [collapseClasses, setCollapseClasses] = useState("");
   const onExiting = () => setCollapseClasses("collapsing-out");
-
   const onExited = () => setCollapseClasses("");
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Close mobile menu after clicking
+    const navbar = document.getElementById('navbar_global') as HTMLButtonElement;
+    if (navbar) navbar.click();
+  };
 
   useEffect(() => {
     let headroom = new Headroom(document.getElementById("navbar-main")!);
-    // initialise
     headroom.init();
   });
 
@@ -51,34 +59,84 @@ const Navigation = () => {
                 </Row>
               </div>
               <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                {socialLinks.facebook && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Facebook"
-                      className="nav-link-icon"
-                      href={socialLinks.facebook}
-                      target="_blank"
-                    >
-                      <i className="fa fa-facebook-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Facebook</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.instagram && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Instagram"
-                      className="nav-link-icon"
-                      href={socialLinks.instagram}
-                      target="_blank"
-                    >
-                      <i className="fa fa-instagram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Instagram</span>
-                    </NavLink>
-                  </NavItem>
-                )}
+                {/* Quick Navigation Links */}
+                <NavItem>
+                  <NavLink
+                    className="nav-link"
+                    onClick={() => scrollToSection('skills')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <i className="ni ni-bulb-61 mr-2" />
+                    Skills
+                  </NavLink>
+                </NavItem>
+                
+                <NavItem>
+                  <NavLink
+                    className="nav-link"
+                    onClick={() => scrollToSection('projects')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <i className="ni ni-laptop mr-2" />
+                    Projects
+                  </NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink
+                    className="nav-link"
+                    onClick={() => scrollToSection('experience')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <i className="ni ni-briefcase-24 mr-2" />
+                    Experience
+                  </NavLink>
+                </NavItem>
+
+                <NavItem>
+                  <NavLink
+                    className="nav-link"
+                    onClick={() => scrollToSection('contact')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <i className="ni ni-email-83 mr-2" />
+                    Contact
+                  </NavLink>
+                </NavItem>
+
+                {/* Resume Download Button */}
+                <NavItem className="d-none d-lg-block">
+                  <Button
+                    color="primary"
+                    href={greetings.resumeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-3"
+                  >
+                    <i className="ni ni-download mr-2" />
+                    Resume
+                  </Button>
+                </NavItem>
+
+                {/* Mobile Resume Button */}
+                <NavItem className="d-lg-none">
+                  <NavLink
+                    className="nav-link"
+                    href={greetings.resumeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="ni ni-download mr-2" />
+                    Download Resume
+                  </NavLink>
+                </NavItem>
+
+                {/* Divider */}
+                <NavItem className="d-none d-lg-block">
+                  <div className="nav-divider" />
+                </NavItem>
+
+                {/* Essential Social Links */}
                 {socialLinks.github && (
                   <NavItem>
                     <NavLink
@@ -93,6 +151,7 @@ const Navigation = () => {
                     </NavLink>
                   </NavItem>
                 )}
+                
                 {socialLinks.linkedin && (
                   <NavItem>
                     <NavLink
@@ -103,21 +162,7 @@ const Navigation = () => {
                       target="_blank"
                     >
                       <i className="fa fa-linkedin" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Linkedin</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.twitter && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Twitter"
-                      className="nav-link-icon"
-                      href={socialLinks.twitter}
-                      target="_blank"
-                    >
-                      <i className="fa fa-twitter-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Twitter</span>
+                      <span className="nav-link-inner--text d-lg-none ml-2">LinkedIn</span>
                     </NavLink>
                   </NavItem>
                 )}
